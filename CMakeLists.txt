@@ -5,4 +5,5 @@ set(CMAKE_CXX_STANDARD 17)
 
 add_executable(sizeof sizeof.cpp)
 add_executable(hello hello.cpp)
+add_executable(pid pid.cpp main_pid.cpp)
 
