@@ -11,8 +11,9 @@ class pid  {
     float k1, k2, k3, k4;
     float ep, yp, ip, dp;
 public:
-    void init(float kp, float ki,
+    pid(float kp, float ki,
               float kd, float T, float a);
+    ~pid();
     void print();
     float calc(float ref, float y);
 };

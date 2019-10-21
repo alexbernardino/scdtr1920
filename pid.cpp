@@ -6,9 +6,10 @@
 #include <iostream>
 using namespace std;
 
-void pid::init(float p, float i,
+pid::pid(float p, float i,
                float d, float _T, float _a)  {
     //warning: should check args
+    cout<<"pid ctor"<<endl;
     ep = yp = ip = dp = 0.0f;
     k1=kp=p; ki=i; kd=d; T=_T; a=_a;
     k2=kp*ki*T/2;
@@ -42,4 +43,8 @@ void pid::print() {
     cout << " kd: " << kd;
     cout << " T: " << T;
     cout << " a: " << a << endl;
+}
+
+pid::~pid() {
+    cout<<"pid dtor"<<endl;
 }
