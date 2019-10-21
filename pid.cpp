@@ -6,25 +6,25 @@
 #include <iostream>
 using namespace std;
 
-pid::pid(float p) {
+pid::pid(float p)
+: kp{p}, k1{p}, ki{0}, kd{0}, k2{0}, k3{0}, k4{0},
+  T{0}, a{0}, ep{0}, yp{0}, ip{0}, dp{0},
+  derivative{false}
+{
     //warning: should check args
     cout<<"pid ctor 2"<<endl;
-    k1 = kp = p;
-    derivative = false;
-    ki=kd=k2=k3=k4=ep=yp=ip=dp=T=a=0;
 }
 
-pid::pid(float p, float i,
-               float d, float _T, float _a)  {
+pid::pid(float p, float i, float d, float _T, float _a)
+: kp{p}, ki{i}, kd{d}, T {_T < 0 ? 1 : _T}, a{_a},
+ep{0}, yp{0}, ip{0}, dp{0}, derivative{true}
+{
     //warning: should check args
     cout<<"pid ctor 2"<<endl;
-    ep = yp = ip = dp = 0.0f;
-    k1=kp=p; ki=i; kd=d; T=_T; a=_a;
     k2=kp*ki*T/2;
     if (kd < 0.000001f)
         derivative = false;
     else {
-        derivative = true;
         float den = kd+a*T;
         //warning: should check den
         k3=kd/den;
