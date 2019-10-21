@@ -6,21 +6,13 @@
 #include <iostream>
 using namespace std;
 
-pid::pid(float p)
-: kp{p}, k1{p}, ki{0}, kd{0}, k2{0}, k3{0}, k4{0},
-  T{0}, a{0}, ep{0}, yp{0}, ip{0}, dp{0},
-  derivative{false}
-{
-    //warning: should check args
-    cout<<"pid ctor 2"<<endl;
-}
-
 pid::pid(float p, float i, float d, float _T, float _a)
 : kp{p}, ki{i}, kd{d}, T {_T < 0 ? 1 : _T}, a{_a},
 ep{0}, yp{0}, ip{0}, dp{0}, derivative{true}
 {
     //warning: should check args
     cout<<"pid ctor 2"<<endl;
+    k1 = kp;
     k2=kp*ki*T/2;
     if (kd < 0.000001f)
         derivative = false;
