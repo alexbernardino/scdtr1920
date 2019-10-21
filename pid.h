@@ -14,7 +14,7 @@ public:
     void init(float kp, float ki,
               float kd, float T, float a);
     void print();
-    float calc(float, float);
+    float calc(float ref, float y);
 };
 
 #endif  //PID_H
