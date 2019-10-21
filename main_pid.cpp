@@ -10,12 +10,11 @@ using namespace std;
 int main()
 {
     {
-        // declare a local object and initialize
-        pid c{3, 5, 0, 0.01, 0};
-        // invoke object methods
-        c.print();
-        cout << c.calc(5, 4) << endl;
-        cout << c.calc(5, 5) << endl;
+        // declare a local objects and initialize
+        pid c1 {3}; //use one argument constructor
+        c1.print();
+        pid c2{3, 5, 0, 0.01, 0}; //use five argument constructor
+        c2.print();
     }
     getchar(); // pause
 } // obj is destroyed here.

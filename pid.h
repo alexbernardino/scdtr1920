@@ -11,6 +11,8 @@ class pid  {
     float k1, k2, k3, k4;
     float ep, yp, ip, dp;
 public:
+    pid() = delete;
+    explicit pid(float kp);
     pid(float kp, float ki,
               float kd, float T, float a);
     ~pid();

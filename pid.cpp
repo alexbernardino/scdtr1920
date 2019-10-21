@@ -6,10 +6,18 @@
 #include <iostream>
 using namespace std;
 
+pid::pid(float p) {
+    //warning: should check args
+    cout<<"pid ctor 2"<<endl;
+    k1 = kp = p;
+    derivative = false;
+    ki=kd=k2=k3=k4=ep=yp=ip=dp=T=a=0;
+}
+
 pid::pid(float p, float i,
                float d, float _T, float _a)  {
     //warning: should check args
-    cout<<"pid ctor"<<endl;
+    cout<<"pid ctor 2"<<endl;
     ep = yp = ip = dp = 0.0f;
     k1=kp=p; ki=i; kd=d; T=_T; a=_a;
     k2=kp*ki*T/2;
