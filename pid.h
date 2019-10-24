@@ -7,6 +7,7 @@
 #include <iostream>
 using namespace std;
 class pid  {
+    static int  tot;
     bool derivative;
     float kp, ki, kd, T, a;
     float k1, k2, k3, k4;
@@ -15,11 +16,14 @@ public:
     pid() = delete;
     explicit pid(float kp, float ki = 0,
               float kd = 0, float T = 1, float a = 10);
-    ~pid();
+    ~pid() {tot--;}
     void print();
     float calc(float error);
     float calc(float ref, float y);
     void operator*=(float);
+    static int object_count() {
+        return tot;
+    }
 };
 
 #endif  //PID_H

@@ -9,12 +9,17 @@ using namespace std;
 
 int main()
 {
-    // declare a local objects and initialize
-    pid c1{3}; //use one argument constructor
-    c1.print();
-    pid c2{3, 5, 0, 0.01, 0}; //use five argument constructor
-    c2.print();
-    c2*=0.5;
-    c2.print();
+    {   //entering scope 1
+        pid c1{3}; //use one argument constructor
+        c1.print();
+        cout << "#pid: " << c1.object_count() << endl;
+        { //entering scope 2
+            pid c2{3, 5, 0, 0.01, 0};
+            c2.print();
+            cout << "#pid: " << pid::object_count() << endl;
+        } //exiting scope 2
+        cout << "#pid: " << pid::object_count() << endl;
+    }   //exiting scope 1
+    cout << "#pid: " << pid::object_count() << endl;
     getchar(); // pause
 } // obj is destroyed here.

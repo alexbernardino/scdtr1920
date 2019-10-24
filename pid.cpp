@@ -6,12 +6,14 @@
 #include <iostream>
 using namespace std;
 
+int pid::tot {0};
+
 pid::pid(float p, float i, float d, float _T, float _a)
 : kp{p}, ki{i}, kd{d}, T {_T < 0 ? 1 : _T}, a{_a},
 ep{0}, yp{0}, ip{0}, dp{0}, derivative{true}
 {
     //warning: should check args
-    cout<<"pid ctor"<<endl;
+    tot++;
     k1 = kp;
     k2=kp*ki*T/2;
     if (kd < 0.000001f)
@@ -53,10 +55,6 @@ void pid::print() {
     cout << " kd: " << kd;
     cout << " T: " << T;
     cout << " a: " << a << endl;
-}
-
-pid::~pid() {
-    cout<<"pid dtor"<<endl;
 }
 
 void pid::operator*=(float s) {
