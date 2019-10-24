@@ -19,6 +19,7 @@ public:
     void print();
     float calc(float error);
     float calc(float ref, float y);
+    void operator*=(float);
 };
 
 #endif  //PID_H

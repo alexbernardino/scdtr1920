@@ -58,3 +58,7 @@ void pid::print() {
 pid::~pid() {
     cout<<"pid dtor"<<endl;
 }
+
+void pid::operator*=(float s) {
+    kp*=s; k1*=s; k2*=s; k4*=s;
+}

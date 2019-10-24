@@ -9,12 +9,12 @@ using namespace std;
 
 int main()
 {
-    {
-        // declare a local objects and initialize
-        pid c1{3}; //use one argument constructor
-        c1.print();
-        pid c2{3, 5, 0, 0.01, 0}; //use five argument constructor
-        c2.print();
-    }
+    // declare a local objects and initialize
+    pid c1{3}; //use one argument constructor
+    c1.print();
+    pid c2{3, 5, 0, 0.01, 0}; //use five argument constructor
+    c2.print();
+    c2*=0.5;
+    c2.print();
     getchar(); // pause
 } // obj is destroyed here.
