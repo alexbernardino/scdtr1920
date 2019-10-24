@@ -13,16 +13,8 @@ class pid  {
     float ep, yp, ip, dp;
 public:
     pid() = delete;
-    explicit pid(float p)
-    : kp{p}, k1{p}, ki{0}, kd{0}, k2{0}, k3{0}, k4{0},
-      T{0}, a{0}, ep{0}, yp{0}, ip{0}, dp{0},
-      derivative{false}
-    {
-        //warning: should check args
-        cout<<"pid ctor 2"<<endl;
-    }
-    pid(float kp, float ki,
-              float kd, float T, float a);
+    explicit pid(float kp, float ki = 0,
+              float kd = 0, float T = 1, float a = 10);
     ~pid();
     void print();
     float calc(float error);

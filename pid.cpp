@@ -11,7 +11,7 @@ pid::pid(float p, float i, float d, float _T, float _a)
 ep{0}, yp{0}, ip{0}, dp{0}, derivative{true}
 {
     //warning: should check args
-    cout<<"pid ctor 2"<<endl;
+    cout<<"pid ctor"<<endl;
     k1 = kp;
     k2=kp*ki*T/2;
     if (kd < 0.000001f)
