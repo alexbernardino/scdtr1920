@@ -24,6 +24,16 @@ ep{0}, yp{0}, ip{0}, dp{0}, derivative{true}
     }
 }
 
+
+float pid::calc(float e)
+{
+    //warning: code not optimized
+    float p = k1*e;
+    float i = ip + k2*(e+ep);
+    ip = i; ep = e;
+    return p+i;
+}
+
 float pid::calc(float ref, float y)
 {
     //warning: code not optimized

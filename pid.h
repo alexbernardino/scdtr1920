@@ -25,6 +25,7 @@ public:
               float kd, float T, float a);
     ~pid();
     void print();
+    float calc(float error);
     float calc(float ref, float y);
 };
 
