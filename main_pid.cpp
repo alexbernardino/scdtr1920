@@ -10,8 +10,8 @@ using namespace std;
 int main()
 {
     {   //entering scope 1
-        pid c1{3}; //use one argument constructor
-        c1.print();
+        const pid c1{3}; //use one argument constructor
+        c1.print(); //the only function that can be used in the object (const)
         cout << "#pid: " << c1.object_count() << endl;
         { //entering scope 2
             pid c2{3, 5, 0, 0.01, 0};

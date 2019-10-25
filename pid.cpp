@@ -49,7 +49,7 @@ float pid::calc(float ref, float y)
     return p+i+d;
 }
 
-void pid::print() {
+void pid::print() const {
     cout << " kp: " << kp;
     cout << " ki: " << ki;
     cout << " kd: " << kd;

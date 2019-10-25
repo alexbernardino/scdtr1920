@@ -17,7 +17,7 @@ public:
     explicit pid(float kp, float ki = 0,
               float kd = 0, float T = 1, float a = 10);
     ~pid() {tot--;}
-    void print();
+    void print() const;
     float calc(float error);
     float calc(float ref, float y);
     void operator*=(float);
